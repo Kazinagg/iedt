@@ -1,0 +1,21 @@
+/* Carousel.module.css */
+.carousel {
+    /* Стили для карусели */
+}
+
+.carouselItem {
+    /* Стили для элементов карусели */
+}
+
+.imageContainer {
+  width: 100%;
+  /* height: 300px; */
+  overflow: hidden; /* Обрезает изображение, если оно больше контейнера */
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* Отключаем события указателя */
+  }

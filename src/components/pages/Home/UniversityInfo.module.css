@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    position: relative; /* Нужно для позиционирования линии */
+  }
+  
+  
+  .carouselBlock {
+    width: 400px; /* Ширина блока карусели */
+    /* Дополнительные стили для блока карусели */
+  }
+  
+  .textBlock {
+    flex: 0.7; /* Текстовый блок занимает доступное пространство */
+    border: 0px;
+    border-right: 2px;
+    border-color: #ccc;
+    border-style: dashed;
+    padding-right: 10px;
+  }
+  
+  
+  
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .carouselBlock {
+        width: 100%; /* Карусель занимает всю ширину */
+        order: -1; /* Карусель располагается перед текстом */
+    }
+  
+    .textBlock::after {
+      display: none; /* Скрываем линию на мобильных устройствах */
+    }
+  }

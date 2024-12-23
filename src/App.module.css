@@ -1,0 +1,12 @@
+
+.appContainer {
+  display: flex;
+}
+
+.mainContent {
+  flex-grow: 1; /* Занимает все доступное пространство справа от навигации */
+  margin-left: 185px; /* Отступ слева, равный ширине навигации */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}

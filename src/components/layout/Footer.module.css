@@ -1,0 +1,67 @@
+/* src/components/Footer.module.css */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0; /* Поля сверху и снизу */
+    margin-top: auto; /* Чтобы футер всегда был внизу страницы */
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  
+  
+  .footerContainer {
+    max-width: 960px; /* Или другая ширина */
+    margin: 0 auto; /* Центрируем контент */
+    text-align: center; /* Выравнивание по центру */
+     display: flex;
+      flex-direction: column;
+      gap: 10px; /* Пробел между элементами */
+      align-items: center;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 1rem; /* Пробел между ссылками */
+  
+  }
+  
+  .socialLink {
+   color: #fff; /* Цвет ссылок */
+      text-decoration: none;
+  }
+  
+  
+  
+  .copyright {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+  
+  /* .footerNav {
+  
+  } */
+  
+  .footerLink {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    &:hover {
+        text-decoration: underline;
+    }
+  }
+  
+  @media (min-width: 768px) {
+      .footerContainer {
+          flex-direction: row;
+          justify-content: space-between;
+          text-align: left;
+      }
+  
+      .copyright {
+         text-align: left;
+      }
+  
+      .socialLinks {
+         justify-content: flex-end;
+      }
+  }

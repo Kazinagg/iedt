@@ -1,0 +1,14 @@
+/* src/components/FeaturedPrograms.module.css */
+.featuredPrograms {
+    /* Стили для секции */
+}
+.programList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка */
+    gap: 1rem;
+}
+
+.program {
+    border: 1px solid #ddd;
+    padding: 1rem;
+}

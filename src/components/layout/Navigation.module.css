@@ -1,0 +1,74 @@
+/* src/components/Navigation.module.css */
+.sidebar {
+    /* Ваши стили для боковой панели */
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 185px; /* Или другая ширина */
+    background-color: #f0f0f0; /* Или другой цвет */
+  }
+
+  .map{
+    position: absolute;
+  }
+  
+  /* .burger { Стили для кнопки бургера } */
+  /* .burgerIcon { Стили для иконки бургера } */
+  .navList { /* Стили для списка ссылок */
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: none;
+  }
+  /* .navListOpen { /* Стили для открытого списка */
+      /* Добавьте стили для отображения списка в открытом состоянии
+  } */
+  .navItem { /* Стили для элемента списка */
+     margin-bottom: 10px;
+  }
+  
+  .navLink { /* Стили для ссылки */
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+  .navLinkActive { /* Стили для активной ссылки */
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    background-color: #ddd;
+    font-weight: bold;
+  }
+  
+  .navListHomeP{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+
+  .navIcon {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+
+  .HomeP{
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 100vh;
+  }
+
+  .languageSwitch { 
+    padding: 10px;
+  }
+
+  .langButton { 
+    margin: 10px;
+  }

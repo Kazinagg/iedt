@@ -1,0 +1,44 @@
+/* src/components/Header.module.css */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f0f0f0; /* Или другой цвет */
+  }
+  
+  .logoContainer {
+      /* Стили для контейнера логотипа */
+  }
+  
+  .logo {
+    height: 90px;
+  }
+  
+  .navigation {
+    /* Стили для навигации */
+    display: flex;
+  }
+  
+  .navLink {
+    margin-left: 1rem;
+    text-decoration: none;
+    color: #333;
+      &:hover {
+          text-decoration: underline;
+      }
+  }
+  
+  .userActions {
+     /* Стили для блока действий пользователя */
+  }
+  
+  .userButton {
+    margin-left: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: #007bff; /* Или другой цвет */
+    color: white;
+    cursor: pointer;
+    border-radius: 0.25rem;
+  }

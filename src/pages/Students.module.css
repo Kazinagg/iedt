@@ -1,0 +1,43 @@
+/* Students.module.css */
+.container {
+    max-width: 60%; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 2rem;
+  }
+  
+  .intro {
+      margin-bottom: 2rem;
+  
+  }
+  
+  .facultyList {
+      list-style: none; /* Убираем маркеры списка */
+      padding: 0;
+      margin: 0;
+      /* ... другие стили для списка */
+  }
+  
+  
+  .facultyItem {
+      margin-bottom: 0.5rem;
+  }
+  
+  .postgraduate {
+      /* Стили для блока "Аспирантура" */
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse; /* Объединяем границы ячеек */
+  }
+  
+  .table th,
+  .table td {
+    padding: 0.5rem;
+    border: 1px solid #ccc; /* Добавляем границы */
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f0f0f0; /* Задний фон для заголовков */
+  }
