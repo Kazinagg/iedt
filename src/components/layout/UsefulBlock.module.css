@@ -1,0 +1,42 @@
+/* components/UsefulBlock.module.css */
+.section {
+    /* Стили для секции */
+}
+
+.title {
+    /* Стили для заголовка */
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
+  gap: 1rem;
+}
+
+.card {
+  /* Стили для карточки */
+  background-size: cover;
+  padding: 1rem;
+  color: white; /* Или другой цвет текста */
+  border-radius: 0.5rem;
+
+  background-size: 40%; /* Масштабирует изображение, чтобы оно полностью покрывало карточку */
+  background-position: center; /* Центрирует изображение */
+  background-repeat: no-repeat; /* Не повторяет изображение */
+  /* Добавьте следующие свойства: */
+  overflow: hidden; /* Обрезает все, что выходит за границы карточки */
+}
+
+.cardTop {
+  /* Стили для верхней части карточки */
+
+}
+
+.cardTitle {
+  /* Стили для заголовка карточки */
+
+}
+
+.cardContent {
+  /* Стили для контента карточки */
+}
