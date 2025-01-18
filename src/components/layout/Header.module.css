@@ -5,6 +5,15 @@
     align-items: center;
     padding: 1rem;
     background-color: #f0f0f0; /* Или другой цвет */
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+  }
+
+  .hidden {
+    transform: translateY(-100%); /* Скрываем хедер за верхнюю границу */
   }
   
   .logoContainer {

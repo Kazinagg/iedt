@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '/src/assets/logo_edt.jpg';
@@ -12,8 +12,33 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ isLoggedIn, onLogin, onLogout }) => {
+  const [prevScrollY, setPrevScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.pageYOffset;
+      const isScrollingDown = prevScrollY < currentScrollY && currentScrollY > 0 ; // Прокрутка вниз и не в самом верху
+
+      if (isScrollingDown && isVisible) {
+        setIsVisible(false);
+      } else if (!isScrollingDown && !isVisible) {
+        setIsVisible(true);
+      }
+        setPrevScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+    }
+
+  }, [prevScrollY, isVisible]);
+
   return (
-    <header className={styles.header}>
+    <header ref={headerRef} className={`${styles.header} ${!isVisible && styles.hidden}`}>
       <div className={styles.logoContainer}>
         <img src={logo} alt="Логотип" className={styles.logo} />
       </div>

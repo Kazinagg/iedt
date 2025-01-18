@@ -52,6 +52,12 @@ export default function Home() {
       <UniversityInfo />
       <NewsAndEvents />
       <UsefulBlock cards={cards} />
+      <UsefulBlock cards={cards} />
+      <UsefulBlock cards={cards} />
+      <UsefulBlock cards={cards} />
+      <UsefulBlock cards={cards} />
+      <UsefulBlock cards={cards} />
+      <UsefulBlock cards={cards} />
     </>
   )
 }
