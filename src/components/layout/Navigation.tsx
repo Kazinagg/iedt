@@ -45,15 +45,21 @@ const Navigation: React.FC = () => {
           <span className={styles.burgerIcon} />
         </button>
 
-        <ul className={isOpen ? styles.navListOpen : styles.navList}>
+        <ul className={`${isOpen ? styles.navListOpen : styles.navList} ${styles.map}`}>
           <li className={styles.navItem}>
-              sxdsd
+            <NavLink to={"/"}>
+              Основная
+            </NavLink>
           </li>
           <li className={styles.navItem}>
-              sxdsd
+            <NavLink to={"/employees"}>
+              Сотрудникам
+            </NavLink>
           </li>
           <li className={styles.navItem}>
-              sxdsd
+            <NavLink to={"/students"}>
+              Студентам
+            </NavLink>
           </li>
         </ul>
       </div>

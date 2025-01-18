@@ -11,6 +11,9 @@
 
   .map{
     position: absolute;
+    color: black;
+    list-style-type: none;
+
   }
   
   /* .burger { Стили для кнопки бургера } */
