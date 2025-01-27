@@ -1,8 +1,9 @@
 /* Students.module.css */
 .container {
-    max-width: 60%; /* Ограничиваем ширину контейнера */
+    min-height: 100%;
     margin: 0 auto; /* Центрируем контейнер */
-    padding: 2rem;
+    padding: 2em 20%;
+    background-color: #242424;
   }
   
   .intro {
