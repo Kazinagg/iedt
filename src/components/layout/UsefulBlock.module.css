@@ -1,6 +1,6 @@
 /* components/UsefulBlock.module.css */
 .section {
-    /* Стили для секции */
+    padding: 20px;
 }
 
 .title {

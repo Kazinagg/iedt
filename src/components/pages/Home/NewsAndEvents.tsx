@@ -1,20 +1,32 @@
-// src/components/NewsAndEvents.tsx
 import React from 'react';
 import styles from './NewsAndEvents.module.css';
 
+// Определите интерфейс для типа данных новости/события (опционально, но рекомендуется)
+interface NewsEvent {
+  title: string;
+  description?: string; // Описание может быть необязательным
+}
 
-const NewsAndEvents: React.FC = () => {
+// Определите интерфейс для пропсов компонента NewsAndEvents
+interface NewsAndEventsProps {
+  newsEvents: NewsEvent[]; // Пропс newsEvents - это массив объектов NewsEvent
+}
+
+const NewsAndEvents: React.FC<NewsAndEventsProps> = ({ newsEvents }) => { // Принимаем пропсы деструктуризацией
   return (
     <div className={styles.container}>
       <section>
         <h2>Новости и события</h2>
         <ul>
-          <li>Новость 1</li>
-          <li>Событие 1</li>
+          {newsEvents.map((item, index) => ( // Итерируем по массиву newsEvents
+            <li key={index} className={styles.newsItem}> {/* Добавьте key для React и класс для стилизации */}
+              <h3>{item.title}</h3> {/* Отображаем заголовок */}
+              {item.description && <p>{item.description}</p>} {/* Отображаем описание, если есть */}
+            </li>
+          ))}
         </ul>
       </section>
     </div>
-    
   );
 };
 
