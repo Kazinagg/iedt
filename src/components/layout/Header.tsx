@@ -8,11 +8,11 @@ import Login from './Login'; // Импортируем компонент вхо
 
 interface HeaderProps {
   isLoggedIn: boolean;
-  onLogin: () => void;
+  // onLogin: () => void;
   onLogout: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onLogin, onLogout }) => {
+const Header: React.FC<HeaderProps> = ({ onLogout }) => {
   const [prevScrollY, setPrevScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const headerRef = useRef<HTMLDivElement>(null);
@@ -36,11 +36,18 @@ const Header: React.FC<HeaderProps> = ({ onLogin, onLogout }) => {
 
     window.addEventListener('scroll', handleScroll);
 
-    return () => {
-        window.removeEventListener('scroll', handleScroll);
+    if (showLogin) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto'; // Разрешаем скролл, когда окно входа закрыто
     }
 
-  }, [prevScrollY, isVisible]);
+    return () => {
+        window.removeEventListener('scroll', handleScroll);
+        document.body.style.overflow = 'auto';
+    }
+
+  }, [prevScrollY, isVisible, showLogin]);
 
   useEffect(() => {
     // Проверяем localStorage при монтировании компонента
