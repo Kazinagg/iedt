@@ -62,13 +62,13 @@ const Header: React.FC<HeaderProps> = ({ onLogin, onLogout }) => {
     onLogout(); // Вызываем обработчик выхода, переданный в props
   };
 
-  const handleLoginClick = () => {
-    setShowLogin(true); // Показываем компонент входа
-  };
+  // const handleLoginClick = () => {
+  //   setShowLogin(true); // Показываем компонент входа
+  // };
 
-  const handleLoginClose = () => {
-    setShowLogin(false); // Скрываем компонент входа
-  };
+  // const handleLoginClose = () => {
+  //   setShowLogin(false); // Скрываем компонент входа
+  // };
 
 
   return (
