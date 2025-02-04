@@ -50,18 +50,26 @@ export default function Home() {
     {
       title: 'Новость 1: Открытие новой лаборатории',
       description: 'В университете открылась новая современная лаборатория для исследований в области...',
+      id: 1,
+      slug: "string",
     },
     {
       title: 'Событие 1: День открытых дверей',
       description: 'Приглашаем всех желающих на День открытых дверей, который состоится...',
+      id: 2,
+      slug: "string",
     },
     {
       title: 'Новость 2: Успехи наших студентов на конференции',
       description: 'Студенты нашего университета успешно выступили на международной научной конференции...',
+      id: 3,
+      slug: "string",
     },
     {
       title: 'Событие 2: Мастер-класс от ведущего эксперта',
       description: 'Приглашаем на мастер-класс от известного эксперта в области...',
+      id: 4,
+      slug: "string",
     },
     // ... добавьте больше новостей и событий
   ];
@@ -73,12 +81,12 @@ export default function Home() {
         <UniversityInfo />
         <NewsAndEvents newsEvents={newsEventsData} />
         <UsefulBlock cards={cards} />
+        {/* <UsefulBlock cards={cards} />
         <UsefulBlock cards={cards} />
         <UsefulBlock cards={cards} />
         <UsefulBlock cards={cards} />
         <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} />
+        <UsefulBlock cards={cards} /> */}
       </div>
       
     </>

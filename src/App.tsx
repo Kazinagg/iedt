@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Students from './pages/Students';
+import NewsPage from './pages/NewsPage';
 
 import Navigation from './components/layout/Navigation';
 import Header from './components/layout/Header';
@@ -58,10 +59,11 @@ function App() {
         <div className={styles.appContainer}>
             <Navigation />
             <div className={styles.mainContent}>
-                <Header isLoggedIn={isLoggedIn} onLogin={handleLogin} onLogout={handleLogout} />
+                <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/students" element={<Students />} />
+                  <Route path="/news/:newsSlug" element={<NewsPage />} /> {/* Маршрут для страницы новости */}
                 </Routes> 
                 <Footer />
             </div>

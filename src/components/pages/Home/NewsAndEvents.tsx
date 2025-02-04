@@ -1,27 +1,30 @@
 import React from 'react';
 import styles from './NewsAndEvents.module.css';
+import { Link } from 'react-router-dom'; // Импортируем Link
 
-// Определите интерфейс для типа данных новости/события (опционально, но рекомендуется)
 interface NewsEvent {
+  id: number;
+  slug: string;
   title: string;
-  description?: string; // Описание может быть необязательным
+  description?: string;
 }
 
-// Определите интерфейс для пропсов компонента NewsAndEvents
 interface NewsAndEventsProps {
-  newsEvents: NewsEvent[]; // Пропс newsEvents - это массив объектов NewsEvent
+  newsEvents: NewsEvent[];
 }
 
-const NewsAndEvents: React.FC<NewsAndEventsProps> = ({ newsEvents }) => { // Принимаем пропсы деструктуризацией
+const NewsAndEvents: React.FC<NewsAndEventsProps> = ({ newsEvents }) => {
   return (
     <div className={styles.container}>
       <section>
         <h2>Новости и события</h2>
         <ul>
-          {newsEvents.map((item, index) => ( // Итерируем по массиву newsEvents
-            <li key={index} className={styles.newsItem}> {/* Добавьте key для React и класс для стилизации */}
-              <h3>{item.title}</h3> {/* Отображаем заголовок */}
-              {item.description && <p>{item.description}</p>} {/* Отображаем описание, если есть */}
+          {newsEvents.map((item) => (
+            <li key={item.id} className={styles.newsItem}>
+              <Link to={`/news/${item.slug}`} className={styles.newsLink}> {/* Используем Link и путь к новости */}
+                <h3>{item.title}</h3>
+              </Link>
+              {item.description && <p>{item.description}</p>}
             </li>
           ))}
         </ul>
