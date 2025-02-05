@@ -38,37 +38,56 @@ const Navigation: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const [currentLang, setCurrentLang] = useState('RU'); // Начальный язык
+
+  const handleLanguageChange = (lang: string) => {
+    setCurrentLang(lang);
+    // Здесь может быть логика для изменения языка приложения
+    console.log(`Язык изменен на: ${lang}`);
+  };
+
+
   return (
     <nav className={styles.sidebar}>
-      <div className={styles.map}>
-        <button className={styles.burger} onClick={toggleMenu} title="Меню">
-          <span className={styles.burgerIcon} />
+      <div className={styles['siteMap-container']}> {/* Переименованный класс для контейнера карты сайта */}
+        <button className={styles['siteMap-burger']} onClick={toggleMenu} title="Меню"> {/* Переименованный класс для кнопки burger */}
+          <span className={styles['siteMap-burgerIcon']} /> {/* Переименованный класс для burgerIcon */}
         </button>
 
-        <ul className={`${isOpen ? styles.navListOpen : styles.navList} ${styles.map}`}>
-          <li className={styles.navItem}>
+        <ul className={`${isOpen ? styles['siteMap-navListOpen'] : styles['siteMap-navList']}`}> {/* Переименованные классы для navList и navListOpen */}
+          <li className={styles['siteMap-navItem']}> {/* Переименованный класс для navItem карты сайта */}
             <NavLink to={"/"}>
               Основная
             </NavLink>
           </li>
-          <li className={styles.navItem}>
+          <li className={styles['siteMap-navItem']}>
             <NavLink to={"/employees"}>
               Сотрудникам
             </NavLink>
           </li>
-          <li className={styles.navItem}>
+          <li className={styles['siteMap-navItem']}>
             <NavLink to={"/students"}>
               Студентам
             </NavLink>
           </li>
         </ul>
       </div>
-      
+
 
       <div className={styles.HomeP}>
         <div className={styles.languageSwitch}>
-          <button className={styles.langButton}>RU</button>
-          <button className={styles.langButton}>EN</button>
+          <button
+            className={`${styles.langButton} ${currentLang === 'RU' ? styles.active : ''}`}
+            onClick={() => handleLanguageChange('RU')}
+          >
+            RU
+          </button>
+          <button
+            className={`${styles.langButton} ${currentLang === 'EN' ? styles.active : ''}`}
+            onClick={() => handleLanguageChange('EN')}
+          >
+            EN
+          </button>
         </div>
 
 
@@ -92,9 +111,9 @@ const Navigation: React.FC = () => {
           ))}
         </ul>
 
-        
+
       </div>
-      
+
     </nav>
   );
 };

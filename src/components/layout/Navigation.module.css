@@ -1,77 +1,236 @@
 /* src/components/Navigation.module.css */
 .sidebar {
-    /* Ваши стили для боковой панели */
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 185px; /* Или другая ширина */
-    background-color: #f0f0f0; /* Или другой цвет */
-  }
+  /* Ваши стили для боковой панели */
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 185px; /* Или другая ширина */
+  background-color: #f0f0f0; /* Или другой цвет */
+}
 
-  .map{
-    position: absolute;
-    color: black;
-    list-style-type: none;
+.navItem { /* Стили для элемента списка */
+    margin-bottom: 10px;
+}
 
-  }
-  
-  /* .burger { Стили для кнопки бургера } */
-  /* .burgerIcon { Стили для иконки бургера } */
-  .navList { /* Стили для списка ссылок */
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: none;
-  }
-  /* .navListOpen { /* Стили для открытого списка */
-      /* Добавьте стили для отображения списка в открытом состоянии
-  } */
-  .navItem { /* Стили для элемента списка */
-     margin-bottom: 10px;
-  }
-  
-  .navLink { /* Стили для ссылки */
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
-    &:hover {
-      background-color: #ddd;
-    }
-  }
-  .navLinkActive { /* Стили для активной ссылки */
-    text-decoration: none;
-    color: #333;
-    display: block;
-    padding: 10px;
+.navLink { /* Стили для ссылки */
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  &:hover {
     background-color: #ddd;
-    font-weight: bold;
   }
+}
+.navLinkActive { /* Стили для активной ссылки */
+  text-decoration: none;
+  color: #333;
+  display: block;
+  padding: 10px;
+  background-color: #ddd;
+  font-weight: bold;
+}
+
+.navListHomeP{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.navIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.HomeP{
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 100vh;
+}
+
+.languageSwitch {
+  display: flex; /* Или inline-flex, в зависимости от нужной компоновки */
+  border: 1px solid #ddd; /* Необязательно, для визуального отделения контейнера */
+  border-radius: 5px; /* Необязательно, для скругления углов контейнера */
+  overflow: hidden; /* Чтобы border-radius контейнера работал корректно с кнопками */
+}
+
+.langButton {
+  padding: 8px 15px; /* Вертикальный и горизонтальный отступ внутри кнопки */
+  border: none; /* Убираем стандартную границу кнопки */
+  background-color: #f0f0f0; /* Цвет фона кнопок по умолчанию */
+  color: #333; /* Цвет текста кнопок по умолчанию */
+  font-size: 14px; /* Размер шрифта текста кнопки */
+  cursor: pointer; /* Курсор "рука" при наведении */
+  transition: background-color 0.2s ease, color 0.2s ease; /* Плавный переход цвета фона и текста */
+  flex: 1; /* Чтобы кнопки занимали равную ширину в контейнере (если используется flex) */
+  text-align: center; /* Выравнивание текста по центру кнопки */
+}
+
+/* Убираем границы между кнопками, если они есть из-за стилей браузера */
+.langButton:not(:first-child) {
+  border-left: 1px solid #ddd; /* Разделитель между кнопками, если нужен */
+}
+
+/* Стили при наведении курсора */
+.langButton:hover {
+  background-color: #e0e0e0; /* Более светлый фон при наведении */
+}
+
+/* Стили для активной или выбранной кнопки (например, текущий язык) */
+.langButton.active,
+.langButton:active { /* .langButton:active для момента клика */
+  background-color: #e0e0e0; /* Цвет фона активной кнопки (пример: синий) */
+  /* color: white;  */
+  font-weight: bold; /* Жирный шрифт для выделения активной кнопки */
+}
+
+/* Убираем border-radius с кнопок, чтобы border-radius контейнера был виден */
+.langButton:first-child {
+  border-radius: 5px 0 0 5px; /* Скругление левого верхнего и нижнего углов для первой кнопки */
+}
+
+.langButton:last-child {
+  border-radius: 0 5px 5px 0; /* Скругление правого верхнего и нижнего углов для последней кнопки */
+  border-left: 1px solid #ddd; /* Добавляем разделитель и для последней кнопки, если нужно */
+}
+
+/* Убираем border-radius с кнопок, если не нужен border-radius у контейнера */
+/*.langButton:first-child {
+  border-radius: 5px 0 0 0;
+}
+
+.langButton:last-child {
+  border-radius: 0 5px 0 0;
+}
+
+.languageSwitch {
+  border-radius: 5px 5px 0 0; !* Скруглить только верхние углы контейнера, если нужно *!
+}*/
+
+
+/* --- Стили для карты сайта (siteMap) --- */
+.siteMap-container {
+  position: absolute;
+  padding: 20px;
+  background-color: #f0f0f0;
+  z-index: 3000;
   
-  .navListHomeP{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+  /* Дополнительные стили контейнера карты сайта, если нужно */
+}
+
+.siteMap-burger {
+  /* Стили для кнопки burger (как и раньше .burger) */
+  background: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.siteMap-burger:hover,
+.siteMap-burger:focus {
+  opacity: 0.7;
+  outline: none;
+}
+
+.siteMap-burgerIcon {
+  /* Стили для burgerIcon (как и раньше .burgerIcon) */
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.siteMap-burgerIcon::before,
+.siteMap-burgerIcon::after {
+  /* Стили для псевдоэлементов burgerIcon (как и раньше .burgerIcon::before, .burgerIcon::after) */
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.siteMap-burgerIcon::before {
+  top: -8px;
+}
+
+.siteMap-burgerIcon::after {
+  top: 8px;
+}
+
+.siteMap-navList {
+  /* Стили для navList (как и раньше .navList) */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   
+  width: 200px;
+}
 
-  .navIcon {
-    width: 20px;
-    height: 20px;
-    margin-right: 0.5rem;
-  }
+.siteMap-navListOpen {
+  /* Стили для navListOpen (как и раньше .navListOpen) */
+  display: block;
+  list-style: none;
+  min-width: 100vw;
+  min-height: 100vh;
+  padding-inline-start: 0px;
 
-  .HomeP{
-    display: flex;
-    flex-direction: column-reverse;
-    min-height: 100vh;
-  }
+}
 
-  .languageSwitch { 
-    padding: 10px;
-  }
+.siteMap-navItem {
+  /* Стили для navItem карты сайта (как и раньше .navItem, но только для карты сайта) */
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
 
-  .langButton { 
-    margin: 10px;
-  }
+.siteMap-navItem:last-child {
+  border-bottom: none;
+}
+
+.siteMap-navItem a, .siteMap-navItem a:link, .siteMap-navItem a:visited {
+  /* Стили для ссылок в пунктах карты сайта (как и раньше .navItem a...) */
+  display: block;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.siteMap-navItem a:hover, .siteMap-navItem a:focus, .siteMap-navItem a:active {
+  color: #007bff;
+  background-color: #f0f0f0;
+}
+
+/* Анимация burger иконки при открытии меню (опционально) */
+.siteMap-navListOpen ~ .siteMap-burger .siteMap-burgerIcon {
+  background-color: transparent;
+}
+
+.siteMap-navListOpen ~ .siteMap-burger .siteMap-burgerIcon::before {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.siteMap-navListOpen ~ .siteMap-burger .siteMap-burgerIcon::after {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ... стили для .HomeP, .languageSwitch, .navListHomeP, .navItem, .navLinkActive, .navLink, .navIcon, .langButton, .active ... (они остаются без изменений) */
