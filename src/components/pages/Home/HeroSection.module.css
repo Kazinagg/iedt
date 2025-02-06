@@ -1,22 +1,35 @@
 /* src/components/HeroSection.module.css */
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Или center, если хотите центрировать контент */
-    height: 400px; 
-    background-color: #f0f0f0;
-    padding: 2rem;
-  }
-  
-  .heroContent {
-    /* Стили для текста и кнопки */
-    color: #333;
-  }
-  .heroImage {
-    max-height: 100%;
-    height: auto;
-  
-  }
-  .heroButton {
-      /* Стили для кнопки */
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Или center, если хотите центрировать контент */
+  height: 400px;
+  background-color: var(--color-secondary-cyan); /* Средний циан фон из variables */
+  padding: 2rem;
+}
+
+.heroContent {
+  /* Стили для текста и кнопки */
+  color: var(--color-primary-dark-teal); /* Темно-тил цвет текста из variables */
+}
+.heroImage {
+  max-height: 100%;
+  height: auto;
+
+}
+.heroButton {
+    /* Стили для кнопки */
+    background-color: var(--color-accent-orange); /* Оранжевый фон кнопки из variables */
+    color: var(--color-neutral-white); /* Белый цвет текста кнопки из variables */
+    padding: 0.8rem 2rem; /* Увеличим отступы для кнопки */
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Плавная анимация фона при наведении */
+    font-size: 1.1rem; /* Увеличим размер шрифта кнопки */
+}
+
+.heroButton:hover {
+    background-color: #e05900; /* Более темный оттенок оранжевого при наведении */
+}

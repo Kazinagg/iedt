@@ -60,11 +60,15 @@ function App() {
             <Navigation />
             <div className={styles.mainContent}>
                 <Header isLoggedIn={isLoggedIn} onLogout={handleLogout} />
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/students" element={<Students />} />
-                  <Route path="/news/:newsSlug" element={<NewsPage />} /> {/* Маршрут для страницы новости */}
-                </Routes> 
+                <div className={styles.Container}>
+                  <div className={styles.Content}>
+                    <Routes>
+                      <Route path="/" element={<Home />} />
+                      <Route path="/students" element={<Students />} />
+                      <Route path="/news/:newsSlug" element={<NewsPage />} /> {/* Маршрут для страницы новости */}
+                    </Routes> 
+                  </div>
+                </div>
                 <Footer />
             </div>
         </div>

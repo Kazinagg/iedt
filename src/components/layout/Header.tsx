@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
-import logo from '/src/assets/logo_edt.jpg';
+import logo from '/src/assets/logo_edt.png';
 import Login from './Login'; // Импортируем компонент входа
 
 

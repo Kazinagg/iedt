@@ -1,13 +1,28 @@
 :root {
+  /* Новая цветовая схема (Cyan & Teal с Оранжевым акцентом) */
+  --color-accent-orange: #c05813;     /* Оранжевый (логотип, акценты, кнопки) */
+  --color-primary-light-cyan: #ebe8de; /* Светлый циан (очень светлый фон, акценты) */
+  --color-secondary-cyan: #73BABD;    /* Средний циан (основной фон блоков, разделов) */
+  --color-tertiary-cyan: #50A193;    /* Темный циан (вторичные акценты, кнопки, заголовки) */
+  --color-primary-dark-teal: #346670;  /* Темный тил (темный фон, текст на светлом фоне, важный текст) */
+  --color-neutral-white: #ffffff;    /* Белый (контрастный текст, фон карточек) */
+  --color-text-dark: var(--color-primary-dark-teal); /* Темный тил для основного текста (можно заменить на более светлый серый, если покажется слишком темно) */
+
+  /* Типография (осталось без изменений) */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   /* font-weight: 400; */
   font-size: 19px;
 
+  /* Цветовая схема браузера (осталось без изменений) */
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #f0f0f0;
 
+  /* Начальные цвета (обновлены на CSS variables новой палитры) */
+  color: var(--color-text-dark); /* Темный тил текст по умолчанию */
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон по умолчанию */
+
+
+  /* Оптимизация рендеринга шрифтов (осталось без изменений) */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -15,43 +30,19 @@
   min-height: 100vh;
 }
 
-/* html {
-  font-size: 20px;
-} */
-
+/* Ссылки (обновлены на CSS variables) */
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--color-accent-orange); /* Оранжевый цвет ссылок */
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #cc5200; /* Более темный оттенок оранжевого при наведении */
 }
 
 body {
   margin: 0;
-  /* display: flex; */
-  /* place-items: center; */
-  /* min-width: 320px; */
   min-height: 100vh;
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон body */
+  color: var(--color-text-dark); /* Темный тил цвет текста body */
 }
-
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
-
-
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */

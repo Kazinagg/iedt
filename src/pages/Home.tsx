@@ -77,16 +77,18 @@ export default function Home() {
   return (
     <>
       <div className={styles.main}>
-        <HeroSection />
-        <UniversityInfo />
-        <NewsAndEvents newsEvents={newsEventsData} />
-        <UsefulBlock cards={cards} />
-        {/* <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} />
-        <UsefulBlock cards={cards} /> */}
+        <div className={styles.Block}>
+          <HeroSection />
+        </div>
+        <div className={styles.Block}>
+          <UniversityInfo />
+        </div>
+        <div className={styles.Block}>
+          <NewsAndEvents newsEvents={newsEventsData} />
+        </div>
+        <div className={styles.Block}>
+          <UsefulBlock cards={cards} />
+        </div>
       </div>
       
     </>

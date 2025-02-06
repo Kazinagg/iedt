@@ -1,81 +1,81 @@
 /* src/components/Header.module.css */
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #f0f0f0; /* Или другой цвет */
-    position: sticky;
-    top: 0;
-    left: 0;
-    transition: transform 0.3s ease-in-out;
-    z-index: 2000;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--color-primary-light-cyan); /* Средний циан фон из variables */
+  position: sticky;
+  top: 0;
+  left: 0;
+  transition: transform 0.3s ease-in-out;
+  z-index: 2000;
+}
 
-  .hidden {
-    transform: translateY(-100%); /* Скрываем хедер за верхнюю границу */
-  }
-  
-  .logoContainer {
-      /* Стили для контейнера логотипа */
-  }
-  
-  .logo {
-    height: 90px;
-  }
-  
-  .navigation {
-    /* Стили для навигации */
-    display: flex;
-  }
-  
-  .navLink {
-    margin-left: 1rem;
-    text-decoration: none;
-    color: #333;
-      &:hover {
-          text-decoration: underline;
-      }
-  }
-  
-  .userActions {
-     /* Стили для блока действий пользователя */
-  }
-  
-  .userButton {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: #007bff; /* Или другой цвет */
-    color: white;
-    cursor: pointer;
-    border-radius: 0.25rem;
+.hidden {
+  transform: translateY(-100%); /* Скрываем хедер за верхнюю границу */
+}
 
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
+.logoContainer {
+    /* Стили для контейнера логотипа */
+}
 
-  /* button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  button:hover {
-    border-color: #646cff;
-  }
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  } */
+.logo {
+  height: 90px;
+}
+
+.navigation {
+  /* Стили для навигации */
+  display: flex;
+}
+
+.navLink {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: var(--color-text-dark); /* Темно-тил цвет ссылок из variables */
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.userActions {
+   /* Стили для блока действий пользователя */
+}
+
+.userButton {
+  margin-left: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--color-accent-orange); /* Оранжевый цвет фона кнопки из variables */
+  color: var(--color-neutral-white); /* Белый цвет текста кнопки из variables */
+  cursor: pointer;
+  border-radius: 0.25rem;
+
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+/* button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */

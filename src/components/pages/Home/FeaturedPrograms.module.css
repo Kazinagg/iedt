@@ -1,14 +1,28 @@
 /* src/components/FeaturedPrograms.module.css */
 .featuredPrograms {
-    /* Стили для секции */
+    /* Стили для секции - можно добавить фон, если нужно выделить секцию */
+    /* background-color: var(--color-primary-light-cyan); /* Пример: Светлый циан фон для секции */
+    padding: 2rem 0; /* Добавим вертикальные отступы для секции */
 }
 .programList {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Адаптивная сетка */
-    gap: 1rem;
+    gap: 1.5rem; /* Увеличим отступ между элементами */
 }
 
 .program {
-    border: 1px solid #ddd;
-    padding: 1rem;
+    background-color: var(--color-neutral-white); /* Белый фон карточек программ */
+    border: 1px solid var(--color-secondary-cyan); /* Циановая граница карточек */
+    padding: 1.5rem; /* Увеличим внутренний отступ для карточек */
+    border-radius: 8px; /* Сделаем углы карточек более скругленными */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Добавим легкую тень для выделения */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Плавные эффекты при наведении */
 }
+
+.program:hover {
+    transform: translateY(-4px); /* Небольшое поднятие при наведении */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Усиленная тень при наведении */
+}
+
+/* Дополнительные стили для контента внутри .program можно добавить здесь,
+   например, для заголовков, описаний, кнопок, используя другие цвета из палитры */

@@ -6,7 +6,7 @@
   top: 0;
   height: 100%;
   width: 185px; /* Или другая ширина */
-  background-color: #f0f0f0; /* Или другой цвет */
+  background-color: #dfd0b5; /* Светлый циан фон из variables */
 }
 
 .navItem { /* Стили для элемента списка */
@@ -15,19 +15,19 @@
 
 .navLink { /* Стили для ссылки */
   text-decoration: none;
-  color: #333;
+  color: var(--color-text-dark); /* Темно-тил цвет ссылок из variables */
   display: block;
   padding: 10px;
   &:hover {
-    background-color: #ddd;
+    background-color: var(--color-primary-light-cyan); /* Светлый циан фон при наведении */
   }
 }
 .navLinkActive { /* Стили для активной ссылки */
   text-decoration: none;
-  color: #333;
+  color: var(--color-text-dark); /* Темно-тил цвет ссылок из variables */
   display: block;
   padding: 10px;
-  background-color: #ddd;
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон для активной ссылки */
   font-weight: bold;
 }
 
@@ -52,16 +52,16 @@
 
 .languageSwitch {
   display: flex; /* Или inline-flex, в зависимости от нужной компоновки */
-  border: 1px solid #ddd; /* Необязательно, для визуального отделения контейнера */
-  border-radius: 5px; /* Необязательно, для скругления углов контейнера */
+  border: 1px solid var(--color-secondary-cyan); /* Циановая граница из variables */
+  /*border-radius: 5px;  Необязательно, для визуального отделения контейнера */
   overflow: hidden; /* Чтобы border-radius контейнера работал корректно с кнопками */
 }
 
 .langButton {
   padding: 8px 15px; /* Вертикальный и горизонтальный отступ внутри кнопки */
   border: none; /* Убираем стандартную границу кнопки */
-  background-color: #f0f0f0; /* Цвет фона кнопок по умолчанию */
-  color: #333; /* Цвет текста кнопок по умолчанию */
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон кнопок из variables */
+  color: var(--color-text-dark); /* Темно-тил цвет текста кнопок из variables */
   font-size: 14px; /* Размер шрифта текста кнопки */
   cursor: pointer; /* Курсор "рука" при наведении */
   transition: background-color 0.2s ease, color 0.2s ease; /* Плавный переход цвета фона и текста */
@@ -71,30 +71,30 @@
 
 /* Убираем границы между кнопками, если они есть из-за стилей браузера */
 .langButton:not(:first-child) {
-  border-left: 1px solid #ddd; /* Разделитель между кнопками, если нужен */
+  border-left: 1px solid var(--color-secondary-cyan); /* Циановый разделитель между кнопками из variables */
 }
 
 /* Стили при наведении курсора */
 .langButton:hover {
-  background-color: #e0e0e0; /* Более светлый фон при наведении */
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон при наведении */
 }
 
 /* Стили для активной или выбранной кнопки (например, текущий язык) */
 .langButton.active,
 .langButton:active { /* .langButton:active для момента клика */
-  background-color: #e0e0e0; /* Цвет фона активной кнопки (пример: синий) */
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон активной кнопки */
   /* color: white;  */
   font-weight: bold; /* Жирный шрифт для выделения активной кнопки */
 }
 
 /* Убираем border-radius с кнопок, чтобы border-radius контейнера был виден */
 .langButton:first-child {
-  border-radius: 5px 0 0 5px; /* Скругление левого верхнего и нижнего углов для первой кнопки */
+  /*border-radius: 5px 0 0 5px;  Скругление левого верхнего и нижнего углов для первой кнопки */
 }
 
 .langButton:last-child {
-  border-radius: 0 5px 5px 0; /* Скругление правого верхнего и нижнего углов для последней кнопки */
-  border-left: 1px solid #ddd; /* Добавляем разделитель и для последней кнопки, если нужно */
+  /*border-radius: 0 5px 5px 0;  Скругление правого верхнего и нижнего углов для последней кнопки */
+  border-left: 1px solid var(--color-secondary-cyan); /* Циановый разделитель и для последней кнопки */
 }
 
 /* Убираем border-radius с кнопок, если не нужен border-radius у контейнера */
@@ -115,9 +115,9 @@
 .siteMap-container {
   position: absolute;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон контейнера карты сайта */
   z-index: 3000;
-  
+
   /* Дополнительные стили контейнера карты сайта, если нужно */
 }
 
@@ -144,7 +144,7 @@
   display: block;
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background-color: var(--color-text-dark); /* Темно-тил цвет иконки burger */
   position: relative;
   transition: background-color 0.3s ease;
 }
@@ -178,12 +178,12 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: white;
-  border: 1px solid #ddd;
+  background-color: var(--color-neutral-white); /* Белый фон списка карты сайта */
+  border: 1px solid var(--color-secondary-cyan); /* Циановая граница списка карты сайта */
   border-top: none;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
+
   width: 200px;
 }
 
@@ -200,7 +200,7 @@
 .siteMap-navItem {
   /* Стили для navItem карты сайта (как и раньше .navItem, но только для карты сайта) */
   padding: 10px 15px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--color-primary-light-cyan); /* Светлый циан разделитель пунктов меню карты сайта */
 }
 
 .siteMap-navItem:last-child {
@@ -211,13 +211,13 @@
   /* Стили для ссылок в пунктах карты сайта (как и раньше .navItem a...) */
   display: block;
   text-decoration: none;
-  color: #333;
+  color: var(--color-text-dark); /* Темно-тил цвет ссылок карты сайта */
   transition: color 0.2s ease;
 }
 
 .siteMap-navItem a:hover, .siteMap-navItem a:focus, .siteMap-navItem a:active {
-  color: #007bff;
-  background-color: #f0f0f0;
+  color: var(--color-accent-orange); /* Оранжевый цвет ссылок карты сайта при наведении */
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон пунктов меню карты сайта при наведении */
 }
 
 /* Анимация burger иконки при открытии меню (опционально) */
