@@ -1,0 +1,10 @@
+{
+    "id": 1,
+    "slug": "novost-1",
+    "title": "Новость 1 из JSON файла",
+    "headline": "Краткий заголовок новости 1",
+    "content": "<p>Полное содержание новости 1 из <b>JSON файла</b>.</p>",
+    "date": "2024-01-01",
+    "mainPhotoUrl": "/images/novost-1-main.jpg",
+    "additionalPhotoUrls": []
+  }

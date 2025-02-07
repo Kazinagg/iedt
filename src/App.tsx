@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Students from './pages/Students';
 import NewsPage from './pages/NewsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 import Navigation from './components/layout/Navigation';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import RoleSelectionModal from './components/modals/RoleSelectionModal';
+
 
 import styles from './App.module.css'
 
@@ -66,6 +68,7 @@ function App() {
                       <Route path="/" element={<Home />} />
                       <Route path="/students" element={<Students />} />
                       <Route path="/news/:newsSlug" element={<NewsPage />} /> {/* Маршрут для страницы новости */}
+                      <Route path="*" element={<NotFoundPage />} />
                     </Routes> 
                   </div>
                 </div>

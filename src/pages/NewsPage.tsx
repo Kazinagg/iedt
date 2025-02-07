@@ -6,9 +6,11 @@ interface NewsItem {
   id: number;
   slug: string;
   title: string;
-  content: string;
-  date: string; // или Date, если работаете с датами
-  // ... другие поля новости
+  headline: string;        // Заголовок
+  mainPhotoUrl: string;    // URL главного фото
+  content: string;         // Текст новости
+  additionalPhotoUrls: string[]; // Массив URL остальных фото
+  date: string;           // Дата публикации
 }
 
 const NewsPage: React.FC = () => {
@@ -24,7 +26,8 @@ const NewsPage: React.FC = () => {
     // Функция для получения данных новости с сервера по slug
     const fetchNewsBySlug = async (slug: string) => {
       try {
-        const response = await fetch(`/api/news/${slug}`); // Замените на ваш API endpoint
+        // const response = await fetch(`/api/news/${slug}`); // Замените на ваш API endpoint - для реального запроса по slug
+        const response = await fetch('/api/news/list.json'); // Тестовый Запрос к JSON файлу - пока используем list.json для примера
         if (!response.ok) {
           if (response.status === 404) {
             setError('Новость не найдена.');
@@ -62,11 +65,29 @@ const NewsPage: React.FC = () => {
   return (
     <div className={styles.container}>
       <article>
-        <h1>{newsItem.title}</h1>
-        <p className={styles.date}>Дата публикации: {newsItem.date}</p> {/* Форматируйте дату как нужно */}
-        <div className={styles.content} dangerouslySetInnerHTML={{ __html: newsItem.content }}>
-          {/* Используйте dangerouslySetInnerHTML для HTML контента (если контент приходит в HTML формате) */}
+        <h1 className={styles.title}>{newsItem.title}</h1> {/* Название */}
+        <h2 className={styles.headline}>{newsItem.headline}</h2> {/* Заголовок */}
+
+        <div className={styles.mainPhotoContainer}>
+          <img src={newsItem.mainPhotoUrl} alt={newsItem.title} className={styles.mainPhoto} /> {/* Главное фото */}
         </div>
+
+        <p className={styles.date}>Дата публикации: {newsItem.date}</p>
+
+        <div className={styles.content} dangerouslySetInnerHTML={{ __html: newsItem.content }}>
+          {/* Текст новости с поддержкой стилей */}
+        </div>
+
+        {newsItem.additionalPhotoUrls && newsItem.additionalPhotoUrls.length > 0 && (
+          <div className={styles.additionalPhotosContainer}>
+            <h3>Фотогалерея</h3>
+            <div className={styles.additionalPhotosGallery}>
+              {newsItem.additionalPhotoUrls.map((photoUrl, index) => (
+                <img key={index} src={photoUrl} alt={`Дополнительное фото ${index + 1}`} className={styles.additionalPhoto} />
+              ))}
+            </div>
+          </div>
+        )}
       </article>
     </div>
   );

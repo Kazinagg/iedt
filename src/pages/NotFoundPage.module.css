@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%; 
+    text-align: center;
+    font-family: sans-serif;
+  }
+  
+  .title {
+    font-size: 4em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .message {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  /* .message a {
+    color: #007bff;
+    text-decoration: none;
+  } */
+  
+  .message a:hover {
+    text-decoration: underline;
+  }
