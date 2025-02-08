@@ -42,6 +42,23 @@ export default function Home() {
         </>
       ),
     },
+    {
+      title: 'Мобильное приложение',
+      backgroundImage: 'https://api.www.bmstu.ru/upload/universal/137/65d5da5618163.png',
+      content: (
+        <>
+            {/* Контент карточки  */}
+            <p>Расписание занятий</p>
+            <p>Имена преподавателей</p>
+
+           <div>
+                <button>Google Play</button>
+                <button>App Store</button>
+
+           </div>
+        </>
+      ),
+    },
     
     // ... другие карточки
   ];

@@ -4,13 +4,13 @@
   align-items: center;
   justify-content: space-between; /* Или center, если хотите центрировать контент */
   height: 400px;
-  background-color: var(--color-secondary-cyan); /* Средний циан фон из variables */
+  background-color: var(--color-tertiary-cyan); /* Средний циан фон из variables */
   padding: 2rem;
 }
 
 .heroContent {
   /* Стили для текста и кнопки */
-  color: var(--color-primary-dark-teal); /* Темно-тил цвет текста из variables */
+  color: var(--color-primary-light-cyan); /* Темно-тил цвет текста из variables */
 }
 .heroImage {
   max-height: 100%;
@@ -31,5 +31,7 @@
 }
 
 .heroButton:hover {
-    background-color: #e05900; /* Более темный оттенок оранжевого при наведении */
+    background-color: #e05900; 
+    color: var(--color-neutral-white); 
 }
+

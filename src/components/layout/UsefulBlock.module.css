@@ -1,6 +1,7 @@
 /* components/UsefulBlock.module.css */
 .section {
     padding: 20px;
+    
 }
 
 .title {
@@ -8,20 +9,22 @@
 }
 
 .cardContainer {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Адаптивная сетка */
-  gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .card {
   /* Стили для карточки */
+  background-color: var(--color-secondary-light-cyan);
   background-size: cover;
   padding: 1rem;
   color: white; /* Или другой цвет текста */
   border-radius: 0.5rem;
-
+  width: 500px;
+  margin: 10px;
   background-size: 40%; /* Масштабирует изображение, чтобы оно полностью покрывало карточку */
-  background-position: center; /* Центрирует изображение */
+  background-position: right; /* Центрирует изображение */
   background-repeat: no-repeat; /* Не повторяет изображение */
   /* Добавьте следующие свойства: */
   overflow: hidden; /* Обрезает все, что выходит за границы карточки */
@@ -33,10 +36,10 @@
 }
 
 .cardTitle {
-  /* Стили для заголовка карточки */
+  /* Стили для заголовка карточки */margin: 10px;
 
 }
 
 .cardContent {
-  /* Стили для контента карточки */
+  /* Стили для контента карточки */margin: 10px;
 }

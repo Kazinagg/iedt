@@ -2,11 +2,15 @@
   /* Новая цветовая схема (Cyan & Teal с Оранжевым акцентом) */
   --color-accent-orange: #c05813;     /* Оранжевый (логотип, акценты, кнопки) */
   --color-primary-light-cyan: #ebe8de; /* Светлый циан (очень светлый фон, акценты) */
+  --color-secondary-light-cyan: #d6cebb;
   --color-secondary-cyan: #73BABD;    /* Средний циан (основной фон блоков, разделов) */
-  --color-tertiary-cyan: #50A193;    /* Темный циан (вторичные акценты, кнопки, заголовки) */
+  --color-tertiary-cyan: #4f808b;    /* Темный циан (вторичные акценты, кнопки, заголовки) */
   --color-primary-dark-teal: #346670;  /* Темный тил (темный фон, текст на светлом фоне, важный текст) */
   --color-neutral-white: #ffffff;    /* Белый (контрастный текст, фон карточек) */
   --color-text-dark: var(--color-primary-dark-teal); /* Темный тил для основного текста (можно заменить на более светлый серый, если покажется слишком темно) */
+
+  /* #4D6B72 */
+
 
   /* Типография (осталось без изменений) */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -37,7 +41,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #cc5200; /* Более темный оттенок оранжевого при наведении */
+  color: #cc5200; /
 }
 
 body {

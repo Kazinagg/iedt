@@ -6,11 +6,13 @@
   top: 0;
   height: 100%;
   width: 185px; /* Или другая ширина */
-  background-color: #dfd0b5; /* Светлый циан фон из variables */
+  background-color: var(--color-secondary-light-cyan); /* Светлый циан фон из variables */
+  transition: background-color 0.3s ease; /* Плавный фон боковой панели, если нужно */
 }
 
 .navItem { /* Стили для элемента списка */
     margin-bottom: 10px;
+    transition: margin-bottom 0.3s ease; /* Плавность для margin, если нужно */
 }
 
 .navLink { /* Стили для ссылки */
@@ -18,9 +20,10 @@
   color: var(--color-text-dark); /* Темно-тил цвет ссылок из variables */
   display: block;
   padding: 10px;
-  &:hover {
-    background-color: var(--color-primary-light-cyan); /* Светлый циан фон при наведении */
-  }
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавность для фона и цвета ссылки */
+}
+.navLink:hover {
+  background-color: var(--color-primary-light-cyan); /* Светлый циан фон при наведении */
 }
 .navLinkActive { /* Стили для активной ссылки */
   text-decoration: none;
@@ -29,12 +32,14 @@
   padding: 10px;
   background-color: var(--color-primary-light-cyan); /* Светлый циан фон для активной ссылки */
   font-weight: bold;
+  transition: background-color 0.3s ease, font-weight 0.3s ease; /* Плавность фона и жирности для активной ссылки */
 }
 
 .navListHomeP{
   list-style: none;
-  padding: 0;
+  padding: 0px 0px 4rem 0px;
   margin: 0;
+  transition: padding 0.3s ease, margin 0.3s ease; /* Плавность для padding и margin, если нужно */
 }
 
 
@@ -42,12 +47,14 @@
   width: 20px;
   height: 20px;
   margin-right: 0.5rem;
+  transition: margin-right 0.3s ease; /* Плавность для margin, если нужно */
 }
 
 .HomeP{
   display: flex;
   flex-direction: column-reverse;
   min-height: 100vh;
+  transition: flex-direction 0.3s ease; /* Плавность для flex-direction, если нужно */
 }
 
 .languageSwitch {
@@ -55,6 +62,7 @@
   border: 1px solid var(--color-secondary-cyan); /* Циановая граница из variables */
   /*border-radius: 5px;  Необязательно, для визуального отделения контейнера */
   overflow: hidden; /* Чтобы border-radius контейнера работал корректно с кнопками */
+  transition: border-color 0.3s ease, overflow 0.3s ease; /* Плавность границы и overflow, если нужно */
 }
 
 .langButton {
@@ -64,7 +72,7 @@
   color: var(--color-text-dark); /* Темно-тил цвет текста кнопок из variables */
   font-size: 14px; /* Размер шрифта текста кнопки */
   cursor: pointer; /* Курсор "рука" при наведении */
-  transition: background-color 0.2s ease, color 0.2s ease; /* Плавный переход цвета фона и текста */
+  transition: background-color 0.3s ease, color 0.3s ease, font-size 0.3s ease; /* Плавный переход цвета фона, текста и размера шрифта */
   flex: 1; /* Чтобы кнопки занимали равную ширину в контейнере (если используется flex) */
   text-align: center; /* Выравнивание текста по центру кнопки */
 }
@@ -72,6 +80,7 @@
 /* Убираем границы между кнопками, если они есть из-за стилей браузера */
 .langButton:not(:first-child) {
   border-left: 1px solid var(--color-secondary-cyan); /* Циановый разделитель между кнопками из variables */
+  transition: border-left-color 0.3s ease; /* Плавность для цвета левой границы */
 }
 
 /* Стили при наведении курсора */
@@ -90,11 +99,13 @@
 /* Убираем border-radius с кнопок, чтобы border-radius контейнера был виден */
 .langButton:first-child {
   /*border-radius: 5px 0 0 5px;  Скругление левого верхнего и нижнего углов для первой кнопки */
+  transition: border-radius 0.3s ease; /* Плавность для border-radius, если нужно */
 }
 
 .langButton:last-child {
   /*border-radius: 0 5px 5px 0;  Скругление правого верхнего и нижнего углов для последней кнопки */
   border-left: 1px solid var(--color-secondary-cyan); /* Циановый разделитель и для последней кнопки */
+  transition: border-radius 0.3s ease, border-left-color 0.3s ease; /* Плавность для border-radius и цвета левой границы */
 }
 
 /* Убираем border-radius с кнопок, если не нужен border-radius у контейнера */
@@ -115,8 +126,9 @@
 .siteMap-container {
   position: absolute;
   padding: 20px;
-  background-color: var(--color-primary-light-cyan); /* Светлый циан фон контейнера карты сайта */
+  background-color: var(--color-secondary-light-cyan); /* Светлый циан фон контейнера карты сайта */
   z-index: 3000;
+  transition: background-color 0.3s ease, padding 0.3s ease; /* Плавность фона и padding контейнера карты сайта */
 
   /* Дополнительные стили контейнера карты сайта, если нужно */
 }
@@ -130,7 +142,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.3s ease; /* Плавность прозрачности и фона burger кнопки */
 }
 
 .siteMap-burger:hover,
@@ -146,7 +158,7 @@
   height: 3px;
   background-color: var(--color-text-dark); /* Темно-тил цвет иконки burger */
   position: relative;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, width 0.3s ease, height 0.3s ease; /* Плавность цвета, ширины и высоты иконки burger */
 }
 
 .siteMap-burgerIcon::before,
@@ -158,15 +170,17 @@
   height: 100%;
   background-color: inherit;
   position: absolute;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease; /* Плавность трансформации и цвета псевдоэлементов */
 }
 
 .siteMap-burgerIcon::before {
   top: -8px;
+  transition: top 0.3s ease; /* Плавность для top */
 }
 
 .siteMap-burgerIcon::after {
   top: 8px;
+  transition: top 0.3s ease; /* Плавность для top */
 }
 
 .siteMap-navList {
@@ -183,6 +197,7 @@
   border-top: none;
   border-radius: 0 0 5px 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Плавность фона, границы и тени списка */
 
   width: 200px;
 }
@@ -194,13 +209,14 @@
   min-width: 100vw;
   min-height: 100vh;
   padding-inline-start: 0px;
-
+  transition: display 0.3s ease, min-width 0.3s ease, min-height 0.3s ease; /* Плавность display, min-width и min-height для открытого списка */
 }
 
 .siteMap-navItem {
   /* Стили для navItem карты сайта (как и раньше .navItem, но только для карты сайта) */
   padding: 10px 15px;
   border-bottom: 1px solid var(--color-primary-light-cyan); /* Светлый циан разделитель пунктов меню карты сайта */
+  transition: padding 0.3s ease, border-bottom-color 0.3s ease; /* Плавность padding и цвета нижней границы пунктов меню карты сайта */
 }
 
 .siteMap-navItem:last-child {
@@ -212,7 +228,7 @@
   display: block;
   text-decoration: none;
   color: var(--color-text-dark); /* Темно-тил цвет ссылок карты сайта */
-  transition: color 0.2s ease;
+  transition: color 0.3s ease, text-decoration 0.3s ease; /* Плавность цвета и подчеркивания ссылок карты сайта */
 }
 
 .siteMap-navItem a:hover, .siteMap-navItem a:focus, .siteMap-navItem a:active {
@@ -223,14 +239,17 @@
 /* Анимация burger иконки при открытии меню (опционально) */
 .siteMap-navListOpen ~ .siteMap-burger .siteMap-burgerIcon {
   background-color: transparent;
+  transition: background-color 0.3s ease; /* Плавность для фона иконки бургера при открытии */
 }
 
 .siteMap-navListOpen ~ .siteMap-burger .siteMap-burgerIcon::before {
   transform: translateY(8px) rotate(45deg);
+  transition: transform 0.3s ease, top 0.3s ease; /* Плавность для трансформации и top верхней линии иконки бургера при открытии */
 }
 
 .siteMap-navListOpen ~ .siteMap-burger .siteMap-burgerIcon::after {
   transform: translateY(-8px) rotate(-45deg);
+  transition: transform 0.3s ease, top 0.3s ease; /* Плавность для трансформации и top нижней линии иконки бургера при открытии */
 }
 
 /* ... стили для .HomeP, .languageSwitch, .navListHomeP, .navItem, .navLinkActive, .navLink, .navIcon, .langButton, .active ... (они остаются без изменений) */
