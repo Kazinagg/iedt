@@ -1,0 +1,37 @@
+/*  Стили для панели инструментов (пример) */
+.toolbar {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap; /* Перенос кнопок */
+    gap: 5px;      /* Расстояние между кнопками */
+}
+
+.toolbar button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.toolbar button.is-active {
+    background-color: #eee;
+}
+
+/*  Стили для области редактирования (пример) */
+.ProseMirror {
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-height: 200px; /* Минимальная высота */
+  outline: none;      /* Убираем обводку при фокусе */
+}
+/* Стили для плейсхолдера */
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #ced4da;
+  pointer-events: none;
+  height: 0;
+}

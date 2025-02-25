@@ -8,6 +8,7 @@
   width: 185px; /* Или другая ширина */
   background-color: var(--color-secondary-light-cyan); /* Светлый циан фон из variables */
   transition: background-color 0.3s ease; /* Плавный фон боковой панели, если нужно */
+  z-index: 3000;
 }
 
 .navItem { /* Стили для элемента списка */
@@ -127,7 +128,7 @@
   position: absolute;
   padding: 20px;
   background-color: var(--color-secondary-light-cyan); /* Светлый циан фон контейнера карты сайта */
-  z-index: 3000;
+  
   transition: background-color 0.3s ease, padding 0.3s ease; /* Плавность фона и padding контейнера карты сайта */
 
   /* Дополнительные стили контейнера карты сайта, если нужно */
