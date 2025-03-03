@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './NewsPage.module.css';
-import { getNewsBySlug } from '../api/newsApi'; // Импортируем getNewsBySlug
+import { getNewsBySlug } from '../../api/newsApi'; // Импортируем getNewsBySlug
 import DOMPurify from 'dompurify';
-import { NewsItem } from '../types';
+import { NewsItem } from '../../types';
 
 const NewsPage: React.FC<{ isEditMode: boolean }> = ({ isEditMode }) => {
     const { newsSlug } = useParams<{ newsSlug: string }>();

@@ -29,20 +29,58 @@ export async function getNews(): Promise<NewsItem[]> {
       return newsItems[0]; // Возвращаем первый элемент (должен быть только один)
   }
 
-export async function createNews(newsItem: Omit<NewsItem, 'id' | 'date'>): Promise<NewsItem> { // Исключаем id и date, т.к. они генерируются на сервере
-    const response = await fetch(`${API_BASE_URL}/news`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newsItem),
-    });
+// export async function createNews(newsItem: Omit<NewsItem, 'id' | 'date'>): Promise<NewsItem> { // Исключаем id и date, т.к. они генерируются на сервере
+//     const response = await fetch(`${API_BASE_URL}/news`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(newsItem),
+//     });
 
-    if (!response.ok) {
-        throw new Error('Failed to create news item');
-    }
+//     if (!response.ok) {
+//         throw new Error('Failed to create news item');
+//     }
 
-    return await response.json();
+//     return await response.json();
+// }
+
+export async function createNews(newsItem: Omit<NewsItem, 'id' | 'date'>): Promise<NewsItem> {
+  const response = await fetch(`${API_BASE_URL}/news`, {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newsItem),
+  });
+  if (!response.ok) {
+      throw new Error('Failed to create news item');
+  }
+  return await response.json();
+}
+
+export async function updateNews(newsItem: NewsItem): Promise<NewsItem> {
+  const response = await fetch(`${API_BASE_URL}/news/${newsItem.id}`, { //  Используем id
+      method: 'PUT',  //  Или PATCH, если твой backend поддерживает
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newsItem),
+  });
+  if (!response.ok) {
+      throw new Error('Failed to update news item');
+  }
+  return await response.json();
+}
+
+export async function deleteNews(id: number): Promise<void> {
+  const response = await fetch(`${API_BASE_URL}/news/${id}`, {
+      method: 'DELETE',
+  });
+
+  if (!response.ok) {
+      throw new Error('Failed to delete news item');
+  }
 }
 
 // Другие функции: updateNews, deleteNews ...

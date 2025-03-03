@@ -33,5 +33,45 @@
       "content": "<p>фываыфваф</p>",
       "additionalPhotoUrls": []
     }
+  ],
+  "cards": [
+    {
+      "id": 1,
+      "title": "Мобильное приложение (Главная)",
+      "backgroundImage": "...",
+      "content": "<p>Расписание занятий и имена преподавателей.</p><div><button>Google Play</button><button>App Store</button></div>",
+      "path": "/"
+    },
+    {
+      "id": 2,
+      "title": "Другое приложение (Главная)",
+      "backgroundImage": "...",
+      "content": "<p>Описание другого приложения.</p>",
+      "path": "/"
+    },
+    {
+      "id": 3,
+      "title": "Мобильное приложение (Студенты)",
+      "backgroundImage": "...",
+      "content": "<p>Информация для студентов.</p>",
+      "path": "/students"
+    }
+  ],
+  "carousel": [
+    {
+      "id": 1,
+      "imgPath": "https://bsuedu.ru/upload/iblock/fec/jie7zuv7yykf0m3ur3s6i1gsk0i7xq41/kk.jpg",
+      "label": "Слайд 1"
+    },
+    {
+      "id": 2,
+      "imgPath": "https://bsuedu.ru/upload/iblock/ab1/qgzih08e91sj97p104yk6mxkutobvee4/poliklinika.jpg",
+      "label": "Слайд 2"
+    },
+    {
+       "id": 3,
+       "imgPath": "https://bsuedu.ru/upload/iblock/4c6/u0qdt17cq82s02iect65ngo6ymc37oyc/stomat-.jpg",
+       "label": "Слайд 3"
+    }
   ]
 }

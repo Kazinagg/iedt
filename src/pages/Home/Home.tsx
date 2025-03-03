@@ -1,9 +1,9 @@
 // src/pages/Home/Home.tsx
 import React from 'react';  // Убираем лишний комментарий
-import UniversityInfo from "../components/pages/Home/UniversityInfo";
-import HeroSection from "../components/pages/Home/HeroSection";
-import NewsAndEvents from "../components/pages/Home/NewsAndEvents";
-import UsefulBlock from '../components/layout/UsefulBlock';
+import UniversityInfo from "../../components/pages/Home/UniversityInfo";
+import HeroSection from "../../components/pages/Home/HeroSection";
+import NewsAndEvents from "../../components/pages/Home/NewsAndEvents";
+import UsefulBlock from '../../components/layout/UsefulBlock';
 import styles from './Home.module.css';
 
 interface HomeProps { // Добавляем интерфейс для пропсов
@@ -77,13 +77,13 @@ const Home: React.FC<HomeProps> = ({ isEditMode }) => { // Принимаем is
           <HeroSection />
         </div>
         <div className={styles.Block}>
-          <UniversityInfo />
+          <UniversityInfo isEditMode={isEditMode} />
         </div>
         <div className={styles.Block}>
           <NewsAndEvents isEditMode={isEditMode} /> {/* Передаем isEditMode */}
         </div>
         <div className={styles.Block}>
-          <UsefulBlock cards={cards} />
+          <UsefulBlock />
         </div>
       </div>
 

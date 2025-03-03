@@ -1,21 +1,43 @@
-/* Carousel.module.css */
-.carousel {
-    /* Стили для карусели */
+/* src/components/Carousel.module.css */
+
+.swiperContainer {}
+
+.slideImageContainer {
+    position: relative;
 }
 
-.carouselItem {
-    /* Стили для элементов карусели */
-}
-
-.imageContainer {
-  width: 100%;
-  /* height: 300px; */
-  overflow: hidden; /* Обрезает изображение, если оно больше контейнера */
-}
-
-.image {
+.slideImage {
     width: 100%;
-    height: 100%;
+    display: block;
+    max-height: 500px;
     object-fit: cover;
-    pointer-events: none; /* Отключаем события указателя */
-  }
+}
+
+.slideLabel {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+/*  Удаляем стили для .deleteButton
+.deleteButton {
+  position: absolute;
+  bottom: 60px;
+  right: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+}
+
+.deleteButton:hover {
+    background-color: rgba(255,255,255,0.9);
+}
+*/

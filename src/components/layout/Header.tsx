@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
 import logo from '/src/assets/logo_edt.png';
 import Login from './Login';
+import { useAuth } from '../../context/AuthContext';
 
 interface HeaderProps {
   // isLoggedIn: boolean; // Больше не нужно передавать isLoggedIn как пропс
@@ -95,6 +96,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout, onToggleEditMode }) => {
         <NavLink to="/" className={styles.navLink}>Главная</NavLink>
         <NavLink to="/about" className={styles.navLink}>О нас</NavLink>
         <NavLink to="/contacts" className={styles.navLink}>Контакты</NavLink>
+        <NavLink to="/all-news" className={styles.navLink}>Все новости</NavLink>
       </nav>
       <div className={styles.userActions}>
         {isLoggedIn ? (

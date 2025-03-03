@@ -1,10 +1,15 @@
+// src/pages/Students.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Students.module.css';
-import UniversityInfo from "../components/pages/Home/UniversityInfo";
-import HeroSection from "../components/pages/Home/HeroSection";
-import NewsAndEvents from "../components/pages/Home/NewsAndEvents";
-import UsefulBlock from '../components/layout/UsefulBlock';
+import UniversityInfo from "../../components/pages/Home/UniversityInfo"; //  Пути
+import HeroSection from "../../components/pages/Home/HeroSection";      //  Пути
+import NewsAndEvents from "../../components/pages/Home/NewsAndEvents";   //  Пути
+import UsefulBlock from '../../components/layout/UsefulBlock';          //  Пути
+
+interface StudentsProps { // Добавляем интерфейс
+    isEditMode: boolean;
+}
 
 const faculties = [
     { name: "Факультет математики и информатики", link: "/mathematics" },
@@ -18,78 +23,19 @@ const postgraduatePrograms = [
     // ... другие программы
 ];
 
-const cards = [
-    {
-      title: 'Мобильное приложение',
-      backgroundImage: 'https://api.www.bmstu.ru/upload/universal/137/65d5da5618163.png',
-      content: (
-        <>
-            {/* Контент карточки  */}
-            <p>Расписание занятий</p>
-            <p>Имена преподавателей</p>
+const Students: React.FC<StudentsProps> = ({ isEditMode }) => { // Принимаем isEditMode
 
-           <div>
-                <button>Google Play</button>
-                <button>App Store</button>
-
-           </div>
-        </>
-      ),
-    },
-    {
-      title: 'Мобильное приложение',
-      backgroundImage: 'https://api.www.bmstu.ru/upload/universal/137/65d5da5618163.png',
-      content: (
-        <>
-            {/* Контент карточки  */}
-            <p>Расписание занятий</p>
-            <p>Имена преподавателей</p>
-
-           <div>
-                <button>Google Play</button>
-                <button>App Store</button>
-
-           </div>
-        </>
-      ),
-    },
-    
-    // ... другие карточки
-  ];
-
-  const newsEventsData = [
-    {
-      title: 'Новость 1: Открытие новой лаборатории',
-      description: 'В университете открылась новая современная лаборатория для исследований в области...',
-    },
-    {
-      title: 'Событие 1: День открытых дверей',
-      description: 'Приглашаем всех желающих на День открытых дверей, который состоится...',
-    },
-    {
-      title: 'Новость 2: Успехи наших студентов на конференции',
-      description: 'Студенты нашего университета успешно выступили на международной научной конференции...',
-    },
-    {
-      title: 'Событие 2: Мастер-класс от ведущего эксперта',
-      description: 'Приглашаем на мастер-класс от известного эксперта в области...',
-    },
-    // ... добавьте больше новостей и событий
-  ];
-
-
-export default function Students() {
     return (
         <>
-            <div style={{backgroundColor: '#242424'}}>
+            <div style={{ backgroundColor: '#242424' }}>
                 <HeroSection />
-                <UniversityInfo />
-                <NewsAndEvents newsEvents={newsEventsData} />
-                <UsefulBlock cards={cards} />
+                <UniversityInfo isEditMode={isEditMode} />
+                <NewsAndEvents isEditMode={isEditMode} /> {/* Передаем isEditMode */}
+                <UsefulBlock />  {/*  Убрали cards */}
             </div>
-            
+
             <div className={styles.container}>
-                <div className={styles.intro}> {/* отдельный блок для вводной информации */}
+                <div className={styles.intro}>
                     <h1>Абитуриенту института инженерных и цифровых технологий</h1>
                     <p>Уважаемые друзья, абитуриенты, родители!</p>
                     <p>Институт инженерных и цифровых технологий представляет собой единую систему подготовки профессионалов и ученых по следующим направлениям:</p>
@@ -106,7 +52,7 @@ export default function Students() {
                 </div>
 
 
-                <div className={styles.postgraduate}> {/* отдельный блок для аспирантуры */}
+                <div className={styles.postgraduate}>
                     <h2>Аспирантура</h2>
                     <table className={styles.table}>
                         <thead>
@@ -130,3 +76,4 @@ export default function Students() {
         </>
     );
 }
+export default Students;

@@ -2,7 +2,11 @@ import React from 'react';
 import styles from './UniversityInfo.module.css';
 import Carousel from '../../Carousel'; // Ваш компонент карусели
 
-const UniversityInfo: React.FC = () => {
+interface HeroSectionProps {
+  isEditMode: boolean;
+}
+
+const UniversityInfo: React.FC<HeroSectionProps> = ({ isEditMode }) => {
   return (
     <section className={styles.container}>
       <div className={styles.textBlock}>
@@ -13,7 +17,7 @@ const UniversityInfo: React.FC = () => {
         {/* Добавьте больше текста или другой контент */}
       </div>
       <div className={styles.carouselBlock}>
-        <Carousel />
+        <Carousel isEditMode={isEditMode} />
       </div>
     </section>
   );
