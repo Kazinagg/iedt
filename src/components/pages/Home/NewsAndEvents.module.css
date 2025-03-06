@@ -1,3 +1,41 @@
+/* src/components/pages/Home/NewsAndEvents.module.css */
+
+.section {
+    padding: 20px;
+    margin-bottom: 20px;
+    /* border: 1px solid #ddd; */
+    /* border-radius: 5px; */
+}
+.newsLink{
+    text-decoration: none;
+    /* color: inherit; */
+}
+.newsLink:hover{
+    /* text-decoration: underline; */
+}
+.card {
+    height: 100%; /* Важно! */
+    display: flex;
+    flex-direction: column;
+}
+
+.cardContent {
+    flexGrow: 1; /* Важно! */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /*  Чтобы обрезать текст */
+}
+
+.newsDescription {
+    overflow: hidden;          /*  Обязательно */
+    text-overflow: ellipsis;   /*  Добавляем многоточие */
+    display: -webkit-box;     /*  Обязательно для многострочного обрезания */
+    -webkit-line-clamp: 3;    /*  Максимальное количество строк */
+    -webkit-box-orient: vertical; /*  Обязательно для многострочного обрезания */
+}
+
+
+
 .container{
     padding: 20px;
 }
@@ -15,3 +53,4 @@
 .addButton:hover {
     background-color: #3e8e41;
 }
+

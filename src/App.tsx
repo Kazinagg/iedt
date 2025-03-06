@@ -1,86 +1,112 @@
 // src/App.tsx
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ThemeProvider } from '@mui/material/styles'; // Импортируем ThemeProvider
-import theme from './theme'; // Импортируем тему
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { ConfigProvider, Layout, Menu, theme as antdTheme } from 'antd';
+import {
+  HomeOutlined,
+  UserOutlined,
+  ReadOutlined,
+  DashboardOutlined,
+  LogoutOutlined
+} from '@ant-design/icons';
 import Home from './pages/Home/Home';
 import Students from './pages/Students/Students';
 import NewsPage from './pages/NewsPage/NewsPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import AllNewsPage from './pages/AllNewsPage/AllNewsPage'; //  Импортируем
+import AllNewsPage from './pages/AllNewsPage/AllNewsPage';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import NewsListAdmin from './pages/admin/NewsListAdmin';
+import NewsEditForm from './pages/admin/NewsEditForm';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import AdminRoute from './components/AdminRoute';
+import { customTheme } from './theme';
+import './App.module.css';
+import 'antd/dist/reset.css';
+import MyHeader from './components/layout/MyHeader'; //  Импортируем MyHeader
+import MySidebar from './components/layout/MySidebar';
 
-import Navigation from './components/layout/Navigation';
-import Header from './components/layout/Header';
-import Footer from './components/layout/Footer';
-import RoleSelectionModal from './components/modals/RoleSelectionModal';
 
-import styles from './App.module.css';
+const { Content, Footer, Sider } = Layout;
 
-const roleKey = 'selectedRole';
+const AppContent: React.FC = () => {
+  const { logout, user } = useAuth();
+  const navigate = useNavigate();
+  const [collapsed, setCollapsed] = useState(false);
+  const [isDark, setIsDark] = useState(false);
 
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showModal, setShowModal] = useState(true);
-  const [isEditMode, setIsEditMode] = useState(false);
+  const currentTheme = isDark ? {
+        ...customTheme,
+        algorithm: antdTheme.darkAlgorithm,
+        token: {
+            ...customTheme.token,
+             colorBgContainer: '#141414',
+        }
+    } : customTheme;
 
-  useEffect(() => {
-    const storedRole = localStorage.getItem(roleKey);
-    if (storedRole) {
-      setShowModal(false);
+    const toggleTheme = () => {
+        setIsDark(!isDark);
+    };
+
+    const handleMenuClick = (e: any) => {
+    if (e.key === 'logout') {
+      logout();
+      navigate('/');
+    } else {
+      navigate(e.key);
     }
-    const storedEditMode = localStorage.getItem('isEditMode');
-    if (storedEditMode === 'true') {
-      setIsEditMode(true);
-    }
-  }, []);
-
-  const handleRoleSelect = (role: string) => {
-    localStorage.setItem(roleKey, role);
-    setShowModal(false);
   };
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
+    const getMenuItems = () => {
+      const commonItems = [
+        { key: '/', label: 'Главная', icon: <HomeOutlined /> },
+        { key: '/students', label: 'Студенты', icon: <UserOutlined /> },
+        { key: '/all-news', label: 'Все новости', icon: <ReadOutlined /> },
+      ];
+
+        const adminItems = [
+            { key: '/admin', label: 'Админ панель', icon: <DashboardOutlined /> },
+            { key: 'logout', label: 'Выход', icon: <LogoutOutlined /> },
+        ]
+
+      return user && user.role === 'admin' ? [...commonItems, ...adminItems] : commonItems;
   };
 
-  const handleLogout = () => {
-      setIsLoggedIn(false);
-      setIsEditMode(false);
-      localStorage.removeItem('isEditMode');
-  };
-  const handleToggleEditMode = (newEditMode: boolean) => {
-      setIsEditMode(newEditMode);
-      localStorage.setItem('isEditMode', String(newEditMode));
-  };
 
   return (
-    <ThemeProvider theme={theme}> {/* Оборачиваем в ThemeProvider */}
-      <BrowserRouter>
-        <div className={styles.appContainer}>
-          <Navigation />
-          <div className={styles.mainContent}>
-            <Header onLogout={handleLogout} onToggleEditMode={handleToggleEditMode} />
-            <div className={styles.Container}>
-              <div className={styles.Content}>
+    <Layout style={{ minHeight: '100vh' }}>
+      <MySidebar isDark={isDark}/>
+      <Layout>
+        <MyHeader isDark={isDark} toggleTheme={toggleTheme} currentTheme={currentTheme} />
+        <Content style={{ margin: '24px 16px 0' }}>
+            <div style={{ padding: 24, minHeight: 360, background: currentTheme.token.colorBgContainer }}>
                 <Routes>
-                  <Route path="/" element={<Home isEditMode={isEditMode} />} />
-                  <Route path="/students" element={<Students isEditMode={isEditMode} />} />
-                  <Route path="/news/:newsSlug" element={<NewsPage isEditMode={isEditMode} />} />
-                  <Route path="/all-news" element={<AllNewsPage isEditMode={isEditMode} />} />
-                  <Route path="*" element={<NotFoundPage />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/students" element={<Students />} />
+                    <Route path="/news/:slug" element={<NewsPage />} />
+                    <Route path="/all-news" element={<AllNewsPage />} />
+                    <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>}>
+                        <Route index element={<NewsListAdmin />} />
+                        <Route path="news" element={<NewsListAdmin />} />
+                        <Route path="news/edit/:slug" element={<NewsEditForm />} />
+                    </Route>
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
-              </div>
             </div>
-            <Footer />
-          </div>
-        </div>
-        {showModal && (
-          <RoleSelectionModal onSelect={handleRoleSelect} />
-        )}
-      </BrowserRouter>
-    </ThemeProvider>
+        </Content>
+        <Footer style={{ textAlign: 'center', background: currentTheme.token.colorBgContainer }}>Ant Design ©2023 Created by Ant UED</Footer>
+      </Layout>
+    </Layout>
   );
-}
+};
+
+const App: React.FC = () => (
+  <ConfigProvider theme={customTheme}>
+    <AuthProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </AuthProvider>
+  </ConfigProvider>
+);
 
 export default App;

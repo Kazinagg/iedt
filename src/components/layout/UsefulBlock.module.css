@@ -4,42 +4,54 @@
     
 }
 
+/* src/components/layout/UsefulBlock.module.css */
+
+.section {
+  /* ... */
+}
+
 .title {
-    /* Стили для заголовка */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2e86c1; /*  Другой цвет заголовка */
 }
 
 .cardContainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* ... */
+  
 }
 
 .card {
-  /* Стили для карточки */
-  background-color: var(--color-secondary-light-cyan);
-  background-size: cover;
-  padding: 1rem;
-  color: white; /* Или другой цвет текста */
-  border-radius: 0.5rem;
-  width: 500px;
-  margin: 10px;
-  background-size: 40%; /* Масштабирует изображение, чтобы оно полностью покрывало карточку */
-  background-position: right; /* Центрирует изображение */
-  background-repeat: no-repeat; /* Не повторяет изображение */
-  /* Добавьте следующие свойства: */
-  overflow: hidden; /* Обрезает все, что выходит за границы карточки */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #2e86c1; /*  Добавляем рамку */
+    border-radius: 10px;       /*  Более скругленные углы */
+    transition: transform 0.2s ease-in-out; /*  Добавляем анимацию при наведении */
+    
 }
-
-.cardTop {
-  /* Стили для верхней части карточки */
-
-}
-
-.cardTitle {
-  /* Стили для заголовка карточки */margin: 10px;
-
+.card:hover {
+    transform: scale(1.03); /*  Увеличиваем карточку при наведении */
 }
 
 .cardContent {
-  /* Стили для контента карточки */margin: 10px;
+     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.cardContent p{
+    color: #000;
+}
+.cardContent div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+}
+
+.cardText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }

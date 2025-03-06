@@ -14,10 +14,10 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 // import DeleteIcon from '@mui/icons-material/Delete'; //  Больше не нужен здесь
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import { getCarousel, updateCarousel } from '../api/carouselApi';
-import { CarouselItem } from '../types';
+import { getCarousel, updateCarousel } from '../../api/carouselApi';
+import { CarouselItem } from '../../types';
 import styles from './Carousel.module.css';
-import DeleteSlidesDialog from './modals/DeleteSlidesDialog'; //  Импортируем новый компонент
+import DeleteSlidesDialog from '../modals/DeleteSlidesDialog'; //  Импортируем новый компонент
 
 
 interface CarouselProps {

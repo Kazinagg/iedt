@@ -7,7 +7,8 @@ import {
   DialogActions,
   Button,
   List,
-  ListItem,
+  ListItemButton,
+//   ListItem,
   ListItemText,
   Checkbox,
   ListItemIcon
@@ -53,27 +54,24 @@ const DeleteSlidesDialog: React.FC<DeleteSlidesDialogProps> = ({
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="sm">
       <DialogTitle>Удалить слайды</DialogTitle>
       <DialogContent>
-        <List>
-          {slides.map((slide) => (
-            <ListItem
-              key={slide.id}
-              button
-              onClick={() => handleToggle(slide.id)}
-              secondaryAction={  //  Чекбокс как secondaryAction
-                <Checkbox
-                  edge="end"
-                  onChange={() => handleToggle(slide.id)}
-                  checked={selectedSlides.indexOf(slide.id) !== -1}
-                />
-              }
+      <List>
+        {slides.map((slide) => (
+            <ListItemButton //  Используем ListItemButton
+            key={slide.id}
+            onClick={() => handleToggle(slide.id)}
             >
                 <ListItemIcon>
                     <img src={slide.imgPath} alt={slide.label} style={{ width: 50, height: 50, objectFit: 'cover' }} />
                 </ListItemIcon>
-
-              <ListItemText primary={slide.label} />
-            </ListItem>
-          ))}
+                <ListItemText primary={slide.label} />
+                {/* Перемещаем Checkbox внутрь ListItemButton */}
+                <Checkbox
+                    edge="end"
+                    onChange={() => handleToggle(slide.id)}
+                    checked={selectedSlides.indexOf(slide.id) !== -1}
+                />
+            </ListItemButton>
+        ))}
         </List>
       </DialogContent>
       <DialogActions>

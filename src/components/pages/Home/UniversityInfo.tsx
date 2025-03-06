@@ -1,12 +1,13 @@
+// src/components/pages/Home/UniversityInfo.tsx
 import React from 'react';
 import styles from './UniversityInfo.module.css';
-import Carousel from '../../Carousel'; // Ваш компонент карусели
+import { useAuth } from '../../../context/AuthContext'; // Импортируем useAuth
+import CarouselComponent from '../../layout/Carousel';
 
-interface HeroSectionProps {
-  isEditMode: boolean;
-}
 
-const UniversityInfo: React.FC<HeroSectionProps> = ({ isEditMode }) => {
+const UniversityInfo: React.FC = () => {  //  Не принимаем пропсы
+  const { isAdmin } = useAuth(); //  Получаем isAdmin из AuthContext
+
   return (
     <section className={styles.container}>
       <div className={styles.textBlock}>
@@ -17,7 +18,7 @@ const UniversityInfo: React.FC<HeroSectionProps> = ({ isEditMode }) => {
         {/* Добавьте больше текста или другой контент */}
       </div>
       <div className={styles.carouselBlock}>
-        <Carousel isEditMode={isEditMode} />
+        <CarouselComponent isEditMode={isAdmin} /> {/*  Передаём isAdmin как isEditMode */}
       </div>
     </section>
   );
